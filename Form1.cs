@@ -58,372 +58,512 @@ namespace WinFormsApp1
                 DisplayDataInDataGridVIew(release_order);
             }
         }
+        //private void button3_Click(object sender, EventArgs e)
+        //{
+        //    if (data_source == null)
+        //    {
+        //        MessageBox.Show($"Data Source not loaded.");
+        //    }
+        //    if (release_order == null)
+        //    {
+        //        MessageBox.Show($"Release orders not loaded.");
+        //    }
+        //    else
+        //    {
+        //        int n_orders = release_order.Count - 1;
+        //        string[] item_number = new string[n_orders];
+        //        string[] grade_i = new string[n_orders];
+        //        string[] grade_o = new string[n_orders];
+        //        string[] product = new string[n_orders];
+        //        int[] k = new int[n_orders];
+        //        double[] qty = new double[n_orders];
+        //        double[] diameter = new double[n_orders];
+        //        double[] diameter_second = new double[n_orders];
+        //        double[] L_i = new double[n_orders];
+        //        double[] L_o = new double[n_orders];
+        //        double[] L_i_second = new double[n_orders];
+        //        double[] L_o_second = new double[n_orders];
+        //        double[] t_i = new double[n_orders];
+        //        double[] t_o = new double[n_orders];
+        //        double[] plus_value = new double[n_orders];
+        //        for (int i = 1; i <= n_orders; i++)
+        //        {
+        //            item_number[i - 1] = release_order[i][2];
+        //            int ind = data_source.FindIndex(row => row[0].ToString().Contains(item_number[i - 1]));
+        //            k[i - 1] = ind;
+        //            qty[i - 1] = Convert.ToDouble(release_order[i][4]);
+        //            if (k[i - 1] == -1)
+        //            {
+        //                diameter[i - 1] = 0;
+        //                diameter_second[i - 1] = 0;
+        //                L_i[i - 1] = 0;
+        //                L_o[i - 1] = 0;
+        //                L_i_second[i - 1] = 0;
+        //                L_o_second[i - 1] = 0;
+        //                t_i[i - 1] = 0;
+        //                t_o[i - 1] = 0;
+        //                grade_i[i - 1] = "N/A";
+        //                grade_o[i - 1] = "N/A";
+        //                product[i - 1] = "N/A";
+        //                plus_value[i - 1] = 0;
+        //            }
+        //            else
+        //            {
+        //                diameter[i - 1] = Convert.ToDouble(data_source[ind][3]);
+        //                diameter_second[i - 1] = Convert.ToDouble(data_source[ind][6]);
+        //                L_i[i - 1] = Convert.ToDouble(data_source[ind][7]);
+        //                L_o[i - 1] = Convert.ToDouble(data_source[ind][8]);
+        //                L_i_second[i - 1] = Convert.ToDouble(data_source[ind][9]);
+        //                L_o_second[i - 1] = Convert.ToDouble(data_source[ind][10]);
+        //                t_i[i - 1] = Convert.ToDouble(data_source[ind][11]);
+        //                t_o[i - 1] = Convert.ToDouble(data_source[ind][12]);
+        //                product[i - 1] = Convert.ToString(data_source[ind][2]);
+        //                grade_i[i - 1] = Convert.ToString(data_source[ind][13]);
+        //                grade_o[i - 1] = Convert.ToString(data_source[ind][14]);
+        //                plus_value[i - 1] = Convert.ToDouble(data_source[ind][5]);
+        //            }
+        //        }
+        //        Dictionary<string, int> stringToIntMap = new Dictionary<string, int>();
+        //        Dictionary<double, string> IntToStringMap = new Dictionary<double, string>();
+        //        List<int> assignedIntegers = new List<int>();
+        //        int currentInteger = 1;
+        //        foreach (var item in product)
+        //        {
+        //            if (!stringToIntMap.ContainsKey(item))
+        //            {
+        //                stringToIntMap[item] = currentInteger;
+        //                IntToStringMap[currentInteger] = item;
+        //                currentInteger++;
+        //            }
+        //            assignedIntegers.Add(stringToIntMap[item]);
+        //        }
+        //        Dictionary<string, int> Gi_stringToIntMap = new Dictionary<string, int>();
+        //        Dictionary<double, string> Gi_IntToStringMap = new Dictionary<double, string>();
+        //        List<int> Gi_assignedIntegers = new List<int>();
+        //        int Gi_currentInteger = 1;
+        //        foreach (var item in grade_i)
+        //        {
+        //            if (!Gi_stringToIntMap.ContainsKey(item))
+        //            {
+        //                Gi_stringToIntMap[item] = Gi_currentInteger;
+        //                Gi_IntToStringMap[Gi_currentInteger] = item;
+        //                Gi_currentInteger++;
+        //            }
+        //            Gi_assignedIntegers.Add(Gi_stringToIntMap[item]);
+        //        }
+        //        Dictionary<string, int> Go_stringToIntMap = new Dictionary<string, int>();
+        //        Dictionary<double, string> Go_IntToStringMap = new Dictionary<double, string>();
+        //        List<int> Go_assignedIntegers = new List<int>();
+        //        int Go_currentInteger = 1;
+        //        foreach (var item in grade_o)
+        //        {
+        //            if (!Go_stringToIntMap.ContainsKey(item))
+        //            {
+        //                Go_stringToIntMap[item] = Go_currentInteger;
+        //                Go_IntToStringMap[Go_currentInteger] = item;
+        //                Go_currentInteger++;
+        //            }
+        //            Go_assignedIntegers.Add(Go_stringToIntMap[item]);
+        //        }
+        //        double[,] data_out = new double[n_orders, 13];
+        //        for (int i = 0; i < n_orders; i++)
+        //        {
+        //            data_out[i, 0] = diameter[i];
+        //            data_out[i, 1] = diameter_second[i];
+        //            data_out[i, 2] = L_i[i];
+        //            data_out[i, 3] = L_o[i];
+        //            data_out[i, 4] = L_i_second[i];
+        //            data_out[i, 5] = L_o_second[i];
+        //            data_out[i, 6] = t_i[i];
+        //            data_out[i, 7] = t_o[i];
+        //            data_out[i, 8] = qty[i];
+        //            data_out[i, 9] = assignedIntegers[i];
+        //            data_out[i, 10] = Gi_assignedIntegers[i];
+        //            data_out[i, 11] = Go_assignedIntegers[i];
+        //            data_out[i, 12] = plus_value[i];
+        //        }
+        //        data_out = SortArrayByColumn(data_out, 9);
+        //        double[] diameter_sort = Enumerable.Range(0, data_out.GetLength(0))
+        //                         .Select(row => data_out[row, 0])
+        //                         .ToArray();
+        //        double[] id_sort = Enumerable.Range(0, data_out.GetLength(0))
+        //                         .Select(row => data_out[row, 9])
+        //                         .ToArray();
+        //        var product_dia = diameter_sort.Zip(id_sort, (d, i) => d * i).ToArray();
+        //        var uniqueProduc = product_dia.Distinct().ToList();
+        //        int[] idx = new int[n_orders];
+        //        int n = 0;
+        //        double product_id = product_dia[0];
+        //        List <double> ds = new List<double>{ diameter_sort[0] };
+        //        List <double> up = new List<double> { product_dia[0] };    
+        //        for (int i = 0; i < n_orders; i++)
+        //        {
+        //            if (product_id == product_dia[i])
+        //            {
+        //                idx[i] = n;
+        //                product_id = product_dia[i];
+        //            }
+        //            else
+        //            {
+        //                n = n + 1;
+        //                idx[i] = n;
+        //                product_id = product_dia[i];
+        //                ds.Add(diameter_sort[i]);
+        //                up.Add(product_dia[i]);
+        //            }
+        //        }
+        //        var uniqueIdx = idx.Distinct().ToList();
+        //        double[] dia_set= ds.ToArray();
+        //        double[] product_dia_set= up.ToArray();
+        //        double[] diameter_second_sort = Enumerable.Range(0, data_out.GetLength(0))
+        //                         .Select(row => data_out[row, 1])
+        //                         .ToArray();
+        //        double[] second_pipe = diameter_second_sort.Where(d => d != 0).ToArray();
+        //        var product_sdia = diameter_second_sort.Zip(id_sort, (d, i) => d * i).ToArray();
+        //        double[] product_sdia_nonzero = product_sdia.Where(d => d != 0).ToArray();
+        //        var sid = product_sdia_nonzero.Zip(second_pipe, (p, d) => p / d).Select(x => (int)x).ToArray();
+        //        var uniqueDia_s = diameter_second_sort.Distinct().Where(d => d > 0).ToList();
+        //        var unique_product = product_sdia_nonzero.Distinct().Where(d => d > 0).ToList();
+        //        List<int> i_s = new List<int>();
+        //        for (int i = 0; i < diameter_second.Length; i++)
+        //        {
+        //            if (diameter_second[i] != 0)
+        //            {
+        //                i_s.Add(i);
+        //            }
+        //        }
+        //        int[] i_ss = i_s.ToArray();
+        //        int[] idx_s = new int[uniqueDia_s.Count];
+        //        int n_s = 0;
+        //        double sproduct_id = product_sdia[0];
+        //        for (int i = 0; i < second_pipe.Length; i++)
+        //        {
+        //            if (sproduct_id == product_sdia[i])
+        //            {
+        //                idx_s[i] = n_s;
+        //                sproduct_id = product_sdia[i];
+        //            }
+        //            else
+        //            {
+        //                n_s = n_s + 1;
+        //                idx_s[i] = n_s;
+        //                sproduct_id = product_sdia[i];
+        //            }
+        //        }
+        //        var uniqueIdx_s = idx_s.Distinct().ToList();
+        //        double[] unique_th = new double[uniqueIdx.Count];
+        //        double[] total_pipe_i = new double[uniqueIdx.Count];
+        //        double[] total_pipe_o = new double[uniqueIdx.Count];
+        //        double[] total_pipe_s_i = new double[uniqueDia_s.Count];
+        //        double[] total_pipe_s_o = new double[uniqueDia_s.Count];
+        //        double[] unique_th_s = new double[uniqueDia_s.Count];
+        //        double[] int_gradei = new double[uniqueIdx.Count];
+        //        double[] int_gradeo = new double[uniqueIdx.Count];
+        //        double[] int_plus_value = new double[uniqueIdx.Count];
+        //        int counter = 0;
+        //        int idx_count = 0;
+        //        double[] dia_final = new double[uniqueIdx.Count];
+        //        for (int i = 0; i < uniqueIdx.Count; i++)
+        //        {
+        //            double sum_length_i = 0;
+        //            double sum_length_o = 0;
+        //            double sum_th = 0;
+        //            int counter_th = 0;
+        //            double gi_id = 0; double go_id = 0;
+        //            double plus_value_id = 0;
+        //            for (int j = 0; j < idx.Length; j++)
+        //            {
+        //                if (idx[j] == counter)
+        //                {
+        //                    dia_final[i] = data_out[idx_count, 0];
+        //                    gi_id = data_out[idx_count, 10];
+        //                    go_id = data_out[idx_count, 11];
+        //                    plus_value_id = data_out[idx_count, 12];
+        //                    double sl_i = data_out[idx_count, 8] / Math.Floor(1 / data_out[idx_count, 2]);
+        //                    double sl_o = data_out[idx_count, 8] / Math.Floor(1 / data_out[idx_count, 3]);
+        //                    sum_th += data_out[idx_count, 6];
+        //                    idx_count = idx_count + 1;
+        //                    counter_th = counter_th + 1;
+        //                    sum_length_i = sum_length_i + sl_i;
+        //                    sum_length_o = sum_length_o + sl_o;
+        //                }
+        //            }
+        //            total_pipe_i[i] = Math.Ceiling(sum_length_i);
+        //            total_pipe_o[i] = Math.Ceiling(sum_length_o);
+        //            unique_th[i] = sum_th / counter_th;
+        //            counter = counter + 1;
+        //            int_gradei[i] = gi_id; int_gradeo[i] = go_id;
+        //            int_plus_value[i] = plus_value_id;
+        //        }
+        //        for (int i = 0; i < uniqueDia_s.Count; i++)
+        //        {
+        //            double sum_length_s_i = 0;
+        //            double sum_length_s_o = 0;
+        //            for (int j = 0; j < second_pipe.Length; j++)
+        //            {
+        //                if (uniqueDia_s[i] == second_pipe[j])
+        //                {
+        //                    double sls_i = data_out[i_ss[j], 8] / Math.Floor(1 / data_out[i_ss[j], 4]);
+        //                    double sls_o = data_out[i_ss[j], 8] / Math.Floor(1 / data_out[i_ss[j], 5]);
+        //                    sum_length_s_i = sum_length_s_i + sls_i;
+        //                    sum_length_s_o = sum_length_s_o + sls_o;
+        //                }
+        //            }
+        //            total_pipe_s_i[i] = Math.Ceiling(sum_length_s_i);
+        //            total_pipe_s_o[i] = Math.Ceiling(sum_length_s_o);
+        //        }
+        //        var data_report1 = new DataTable();
+        //        data_report1.Columns.Add("Product", typeof(string));
+        //        data_report1.Columns.Add("Main/Second", typeof(string));
+        //        data_report1.Columns.Add("Diameter", typeof(double));
+        //        data_report1.Columns.Add("Inner/Outer", typeof(string));
+        //        data_report1.Columns.Add("Thickness", typeof(double));
+        //        data_report1.Columns.Add("Pipe Lengths Required (48)", typeof(double));
+        //        data_report1.Columns.Add("Grade", typeof(string));
+        //        data_report1.Columns.Add("Blank Length", typeof(string));
+        //        for (int i = 0; i < uniqueIdx.Count; i++)
+        //        {
+        //            double id_n = product_dia_set[i] / dia_set[i];
+        //            string result_i; string result_o;
+        //            if (IntToStringMap.TryGetValue(id_n, out string originalString))
+        //            {
+        //                string p = originalString;
+        //                var blank_inner = blank_length_data.FirstOrDefault(row =>
+        //                row[0] == p &&
+        //                double.TryParse(row[1], out double value2) && value2 == int_plus_value[i] &&
+        //                double.TryParse(row[2], out double value3) && value3 == dia_final[i] &&
+        //                double.TryParse(row[3], out double value4) && value4 == unique_th[i] &&
+        //                row[5] == "I");
+        //                if (blank_inner != null)
+        //                {
+        //                    result_i = blank_inner[7];
+        //                }
+        //                else
+        //                {
+        //                    result_i = "-";
+        //                }
+        //                var blank_outer = blank_length_data.FirstOrDefault(row =>
+        //                row[0] == p &&
+        //                double.TryParse(row[1], out double value2) && value2 == int_plus_value[i] &&
+        //                double.TryParse(row[2], out double value3) && value3 == dia_final[i] &&
+        //                double.TryParse(row[3], out double value4) && value4 == unique_th[i] &&
+        //                row[5] == "O");
+        //                if (blank_outer != null)
+        //                {
+        //                    result_o = blank_outer[7];
+        //                }
+        //                else
+        //                {
+        //                    result_o = "-";
+        //                }
+        //                if (Gi_IntToStringMap.TryGetValue(int_gradei[i], out string originalString2))
+        //                {
+        //                    string gi = originalString2;
+        //                    data_report1.Rows.Add(p, "main", dia_final[i], "inner", unique_th[i], total_pipe_i[i], gi, result_i);
+        //                }
+        //                if (Go_IntToStringMap.TryGetValue(int_gradeo[i], out string originalString3))
+        //                {
+        //                    string go = originalString3;
+        //                    data_report1.Rows.Add(p, "main", dia_final[i], "outer", unique_th[i], total_pipe_o[i], go, result_o);
+        //                }
+        //            }
+        //        }
+        //        for (int i = 0; i < uniqueIdx_s.Count; i++)
+        //        {
+        //            if (sid.Length > uniqueDia_s.Count)
+        //            {
+        //                double sd_dia = unique_product[i] / sid[i];
+        //                if (IntToStringMap.TryGetValue(sid[i], out string originalString))
+        //                {
+        //                    string p = originalString;
+        //                    data_report1.Rows.Add(p, "second", sd_dia, "inner", 0, total_pipe_s_i[i], "-", "-");
+        //                    data_report1.Rows.Add(p, "second", sd_dia, "outer", 0, total_pipe_s_o[i], "-", "-");
+        //                }
+        //                else
+        //                {
+        //                    string p = "-";
+        //                    data_report1.Rows.Add(p, "second", uniqueDia_s[i], "inner", 0, total_pipe_s_i[i], "-", "-");
+        //                    data_report1.Rows.Add(p, "second", uniqueDia_s[i], "outer", 0, total_pipe_s_o[i], "-", "-");
+        //                }
+        //            }
+        //            else
+        //            {
+        //                double id = unique_product[i] / uniqueDia_s[i];
+        //                if (IntToStringMap.TryGetValue(id, out string originalString))
+        //                {
+        //                    string p = originalString;
+        //                    data_report1.Rows.Add(p, "second", uniqueDia_s[i], "inner", 0, total_pipe_s_i[i], "-", "-");
+        //                    data_report1.Rows.Add(p, "second", uniqueDia_s[i], "outer", 0, total_pipe_s_o[i], "-", "-");
+        //                }
+        //                else
+        //                {
+        //                    string p = "-";
+        //                    data_report1.Rows.Add(p, "second", uniqueDia_s[i], "inner", 0, total_pipe_s_i[i], "-", "-");
+        //                    data_report1.Rows.Add(p, "second", uniqueDia_s[i], "outer", 0, total_pipe_s_o[i], "-", "-");
+        //                }
+        //            }
+
+        //        }
+        //        dataGridView3.DataSource = data_report1;
+        //        SaveFileDialog saveFileDialog = new SaveFileDialog
+        //        {
+        //            Filter = "CSV Files (*.csv)|*.csv|Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
+        //            Title = "Save Report 1",
+        //            DefaultExt = "csv",
+        //            FileName = "Untitled.csv"
+        //        };
+        //        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+        //        {
+        //            string filePath = saveFileDialog.FileName;
+        //            MessageBox.Show("File will be saved at: " + filePath);
+        //            ExportToCsv(data_report1, filePath);
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Save operation was cancelled.");
+        //        }
+        //    }
+        //}
+
+
         private void button3_Click(object sender, EventArgs e)
         {
-            if (data_source == null)
+            if (data_source == null || release_order == null)
             {
-                MessageBox.Show($"Data Source not loaded.");
+                MessageBox.Show("Please load both Data Source and Release Order files.");
+                return;
             }
-            if (release_order == null)
-            {
-                MessageBox.Show($"Release orders not loaded.");
-            }
-            else
-            {
-                int n_orders = release_order.Count - 1;
-                string[] item_number = new string[n_orders];
-                string[] grade_i = new string[n_orders];
-                string[] grade_o = new string[n_orders];
-                string[] product = new string[n_orders];
-                int[] k = new int[n_orders];
-                double[] qty = new double[n_orders];
-                double[] diameter = new double[n_orders];
-                double[] diameter_second = new double[n_orders];
-                double[] L_i = new double[n_orders];
-                double[] L_o = new double[n_orders];
-                double[] L_i_second = new double[n_orders];
-                double[] L_o_second = new double[n_orders];
-                double[] t_i = new double[n_orders];
-                double[] t_o = new double[n_orders];
-                double[] plus_value = new double[n_orders];
-                for (int i = 1; i <= n_orders; i++)
-                {
-                    item_number[i - 1] = release_order[i][2];
-                    int ind = data_source.FindIndex(row => row[0].ToString().Contains(item_number[i - 1]));
-                    k[i - 1] = ind;
-                    qty[i - 1] = Convert.ToDouble(release_order[i][4]);
-                    if (k[i - 1] == -1)
-                    {
-                        diameter[i - 1] = 0;
-                        diameter_second[i - 1] = 0;
-                        L_i[i - 1] = 0;
-                        L_o[i - 1] = 0;
-                        L_i_second[i - 1] = 0;
-                        L_o_second[i - 1] = 0;
-                        t_i[i - 1] = 0;
-                        t_o[i - 1] = 0;
-                        grade_i[i - 1] = "N/A";
-                        grade_o[i - 1] = "N/A";
-                        product[i - 1] = "N/A";
-                        plus_value[i - 1] = 0;
-                    }
-                    else
-                    {
-                        diameter[i - 1] = Convert.ToDouble(data_source[ind][3]);
-                        diameter_second[i - 1] = Convert.ToDouble(data_source[ind][6]);
-                        L_i[i - 1] = Convert.ToDouble(data_source[ind][7]);
-                        L_o[i - 1] = Convert.ToDouble(data_source[ind][8]);
-                        L_i_second[i - 1] = Convert.ToDouble(data_source[ind][9]);
-                        L_o_second[i - 1] = Convert.ToDouble(data_source[ind][10]);
-                        t_i[i - 1] = Convert.ToDouble(data_source[ind][11]);
-                        t_o[i - 1] = Convert.ToDouble(data_source[ind][12]);
-                        product[i - 1] = Convert.ToString(data_source[ind][2]);
-                        grade_i[i - 1] = Convert.ToString(data_source[ind][13]);
-                        grade_o[i - 1] = Convert.ToString(data_source[ind][14]);
-                        plus_value[i - 1] = Convert.ToDouble(data_source[ind][5]);
-                    }
-                }
-                Dictionary<string, int> stringToIntMap = new Dictionary<string, int>();
-                Dictionary<double, string> IntToStringMap = new Dictionary<double, string>();
-                List<int> assignedIntegers = new List<int>();
-                int currentInteger = 1;
-                foreach (var item in product)
-                {
-                    if (!stringToIntMap.ContainsKey(item))
-                    {
-                        stringToIntMap[item] = currentInteger;
-                        IntToStringMap[currentInteger] = item;
-                        currentInteger++;
-                    }
-                    assignedIntegers.Add(stringToIntMap[item]);
-                }
-                Dictionary<string, int> Gi_stringToIntMap = new Dictionary<string, int>();
-                Dictionary<double, string> Gi_IntToStringMap = new Dictionary<double, string>();
-                List<int> Gi_assignedIntegers = new List<int>();
-                int Gi_currentInteger = 1;
-                foreach (var item in grade_i)
-                {
-                    if (!Gi_stringToIntMap.ContainsKey(item))
-                    {
-                        Gi_stringToIntMap[item] = Gi_currentInteger;
-                        Gi_IntToStringMap[Gi_currentInteger] = item;
-                        Gi_currentInteger++;
-                    }
-                    Gi_assignedIntegers.Add(Gi_stringToIntMap[item]);
-                }
-                Dictionary<string, int> Go_stringToIntMap = new Dictionary<string, int>();
-                Dictionary<double, string> Go_IntToStringMap = new Dictionary<double, string>();
-                List<int> Go_assignedIntegers = new List<int>();
-                int Go_currentInteger = 1;
-                foreach (var item in grade_o)
-                {
-                    if (!Go_stringToIntMap.ContainsKey(item))
-                    {
-                        Go_stringToIntMap[item] = Go_currentInteger;
-                        Go_IntToStringMap[Go_currentInteger] = item;
-                        Go_currentInteger++;
-                    }
-                    Go_assignedIntegers.Add(Go_stringToIntMap[item]);
-                }
-                double[,] data_out = new double[n_orders, 13];
-                for (int i = 0; i < n_orders; i++)
-                {
-                    data_out[i, 0] = diameter[i];
-                    data_out[i, 1] = diameter_second[i];
-                    data_out[i, 2] = L_i[i];
-                    data_out[i, 3] = L_o[i];
-                    data_out[i, 4] = L_i_second[i];
-                    data_out[i, 5] = L_o_second[i];
-                    data_out[i, 6] = t_i[i];
-                    data_out[i, 7] = t_o[i];
-                    data_out[i, 8] = qty[i];
-                    data_out[i, 9] = assignedIntegers[i];
-                    data_out[i, 10] = Gi_assignedIntegers[i];
-                    data_out[i, 11] = Go_assignedIntegers[i];
-                    data_out[i, 12] = plus_value[i];
-                }
-                data_out = SortArrayByColumn(data_out, 9);
-                double[] diameter_sort = Enumerable.Range(0, data_out.GetLength(0))
-                                 .Select(row => data_out[row, 0])
-                                 .ToArray();
-                double[] id_sort = Enumerable.Range(0, data_out.GetLength(0))
-                                 .Select(row => data_out[row, 9])
-                                 .ToArray();
-                var product_dia = diameter_sort.Zip(id_sort, (d, i) => d * i).ToArray();
-                var uniqueProduc = product_dia.Distinct().ToList();
-                int[] idx = new int[n_orders];
-                int n = 0;
-                double product_id = product_dia[0];
-                List <double> ds = new List<double>{ diameter_sort[0] };
-                List <double> up = new List<double> { product_dia[0] };    
-                for (int i = 0; i < n_orders; i++)
-                {
-                    if (product_id == product_dia[i])
-                    {
-                        idx[i] = n;
-                        product_id = product_dia[i];
-                    }
-                    else
-                    {
-                        n = n + 1;
-                        idx[i] = n;
-                        product_id = product_dia[i];
-                        ds.Add(diameter_sort[i]);
-                        up.Add(product_dia[i]);
-                    }
-                }
-                var uniqueIdx = idx.Distinct().ToList();
-                double[] dia_set= ds.ToArray();
-                double[] product_dia_set= up.ToArray();
-                double[] diameter_second_sort = Enumerable.Range(0, data_out.GetLength(0))
-                                 .Select(row => data_out[row, 1])
-                                 .ToArray();
-                double[] second_pipe = diameter_second_sort.Where(d => d != 0).ToArray();
-                var product_sdia = diameter_second_sort.Zip(id_sort, (d, i) => d * i).ToArray();
-                double[] product_sdia_nonzero = product_sdia.Where(d => d != 0).ToArray();
-                var sid = product_sdia_nonzero.Zip(second_pipe, (p, d) => p / d).Select(x => (int)x).ToArray();
-                var uniqueDia_s = diameter_second_sort.Distinct().Where(d => d > 0).ToList();
-                var unique_product = product_sdia_nonzero.Distinct().Where(d => d > 0).ToList();
-                List<int> i_s = new List<int>();
-                for (int i = 0; i < diameter_second.Length; i++)
-                {
-                    if (diameter_second[i] != 0)
-                    {
-                        i_s.Add(i);
-                    }
-                }
-                int[] i_ss = i_s.ToArray();
-                int[] idx_s = new int[uniqueDia_s.Count];
-                int n_s = 0;
-                double sproduct_id = product_sdia[0];
-                for (int i = 0; i < second_pipe.Length; i++)
-                {
-                    if (sproduct_id == product_sdia[i])
-                    {
-                        idx_s[i] = n_s;
-                        sproduct_id = product_sdia[i];
-                    }
-                    else
-                    {
-                        n_s = n_s + 1;
-                        idx_s[i] = n_s;
-                        sproduct_id = product_sdia[i];
-                    }
-                }
-                var uniqueIdx_s = idx_s.Distinct().ToList();
-                double[] unique_th = new double[uniqueIdx.Count];
-                double[] total_pipe_i = new double[uniqueIdx.Count];
-                double[] total_pipe_o = new double[uniqueIdx.Count];
-                double[] total_pipe_s_i = new double[uniqueDia_s.Count];
-                double[] total_pipe_s_o = new double[uniqueDia_s.Count];
-                double[] unique_th_s = new double[uniqueDia_s.Count];
-                double[] int_gradei = new double[uniqueIdx.Count];
-                double[] int_gradeo = new double[uniqueIdx.Count];
-                double[] int_plus_value = new double[uniqueIdx.Count];
-                int counter = 0;
-                int idx_count = 0;
-                double[] dia_final = new double[uniqueIdx.Count];
-                for (int i = 0; i < uniqueIdx.Count; i++)
-                {
-                    double sum_length_i = 0;
-                    double sum_length_o = 0;
-                    double sum_th = 0;
-                    int counter_th = 0;
-                    double gi_id = 0; double go_id = 0;
-                    double plus_value_id = 0;
-                    for (int j = 0; j < idx.Length; j++)
-                    {
-                        if (idx[j] == counter)
-                        {
-                            dia_final[i] = data_out[idx_count, 0];
-                            gi_id = data_out[idx_count, 10];
-                            go_id = data_out[idx_count, 11];
-                            plus_value_id = data_out[idx_count, 12];
-                            double sl_i = data_out[idx_count, 8] / Math.Floor(1 / data_out[idx_count, 2]);
-                            double sl_o = data_out[idx_count, 8] / Math.Floor(1 / data_out[idx_count, 3]);
-                            sum_th += data_out[idx_count, 6];
-                            idx_count = idx_count + 1;
-                            counter_th = counter_th + 1;
-                            sum_length_i = sum_length_i + sl_i;
-                            sum_length_o = sum_length_o + sl_o;
-                        }
-                    }
-                    total_pipe_i[i] = Math.Ceiling(sum_length_i);
-                    total_pipe_o[i] = Math.Ceiling(sum_length_o);
-                    unique_th[i] = sum_th / counter_th;
-                    counter = counter + 1;
-                    int_gradei[i] = gi_id; int_gradeo[i] = go_id;
-                    int_plus_value[i] = plus_value_id;
-                }
-                for (int i = 0; i < uniqueDia_s.Count; i++)
-                {
-                    double sum_length_s_i = 0;
-                    double sum_length_s_o = 0;
-                    for (int j = 0; j < second_pipe.Length; j++)
-                    {
-                        if (uniqueDia_s[i] == second_pipe[j])
-                        {
-                            double sls_i = data_out[i_ss[j], 8] / Math.Floor(1 / data_out[i_ss[j], 4]);
-                            double sls_o = data_out[i_ss[j], 8] / Math.Floor(1 / data_out[i_ss[j], 5]);
-                            sum_length_s_i = sum_length_s_i + sls_i;
-                            sum_length_s_o = sum_length_s_o + sls_o;
-                        }
-                    }
-                    total_pipe_s_i[i] = Math.Ceiling(sum_length_s_i);
-                    total_pipe_s_o[i] = Math.Ceiling(sum_length_s_o);
-                }
-                var data_report1 = new DataTable();
-                data_report1.Columns.Add("Product", typeof(string));
-                data_report1.Columns.Add("Main/Second", typeof(string));
-                data_report1.Columns.Add("Diameter", typeof(double));
-                data_report1.Columns.Add("Inner/Outer", typeof(string));
-                data_report1.Columns.Add("Thickness", typeof(double));
-                data_report1.Columns.Add("Pipe Lengths Required (48)", typeof(double));
-                data_report1.Columns.Add("Grade", typeof(string));
-                data_report1.Columns.Add("Blank Length", typeof(string));
-                for (int i = 0; i < uniqueIdx.Count; i++)
-                {
-                    double id_n = product_dia_set[i] / dia_set[i];
-                    string result_i; string result_o;
-                    if (IntToStringMap.TryGetValue(id_n, out string originalString))
-                    {
-                        string p = originalString;
-                        var blank_inner = blank_length_data.FirstOrDefault(row =>
-                        row[0] == p &&
-                        double.TryParse(row[1], out double value2) && value2 == int_plus_value[i] &&
-                        double.TryParse(row[2], out double value3) && value3 == dia_final[i] &&
-                        double.TryParse(row[3], out double value4) && value4 == unique_th[i] &&
-                        row[5] == "I");
-                        if (blank_inner != null)
-                        {
-                            result_i = blank_inner[7];
-                        }
-                        else
-                        {
-                            result_i = "-";
-                        }
-                        var blank_outer = blank_length_data.FirstOrDefault(row =>
-                        row[0] == p &&
-                        double.TryParse(row[1], out double value2) && value2 == int_plus_value[i] &&
-                        double.TryParse(row[2], out double value3) && value3 == dia_final[i] &&
-                        double.TryParse(row[3], out double value4) && value4 == unique_th[i] &&
-                        row[5] == "O");
-                        if (blank_outer != null)
-                        {
-                            result_o = blank_outer[7];
-                        }
-                        else
-                        {
-                            result_o = "-";
-                        }
-                        if (Gi_IntToStringMap.TryGetValue(int_gradei[i], out string originalString2))
-                        {
-                            string gi = originalString2;
-                            data_report1.Rows.Add(p, "main", dia_final[i], "inner", unique_th[i], total_pipe_i[i], gi, result_i);
-                        }
-                        if (Go_IntToStringMap.TryGetValue(int_gradeo[i], out string originalString3))
-                        {
-                            string go = originalString3;
-                            data_report1.Rows.Add(p, "main", dia_final[i], "outer", unique_th[i], total_pipe_o[i], go, result_o);
-                        }
-                    }
-                }
-                for (int i = 0; i < uniqueIdx_s.Count; i++)
-                {
-                    if (sid.Length > uniqueDia_s.Count)
-                    {
-                        double sd_dia = unique_product[i] / sid[i];
-                        if (IntToStringMap.TryGetValue(sid[i], out string originalString))
-                        {
-                            string p = originalString;
-                            data_report1.Rows.Add(p, "second", sd_dia, "inner", 0, total_pipe_s_i[i], "-", "-");
-                            data_report1.Rows.Add(p, "second", sd_dia, "outer", 0, total_pipe_s_o[i], "-", "-");
-                        }
-                        else
-                        {
-                            string p = "-";
-                            data_report1.Rows.Add(p, "second", uniqueDia_s[i], "inner", 0, total_pipe_s_i[i], "-", "-");
-                            data_report1.Rows.Add(p, "second", uniqueDia_s[i], "outer", 0, total_pipe_s_o[i], "-", "-");
-                        }
-                    }
-                    else
-                    {
-                        double id = unique_product[i] / uniqueDia_s[i];
-                        if (IntToStringMap.TryGetValue(id, out string originalString))
-                        {
-                            string p = originalString;
-                            data_report1.Rows.Add(p, "second", uniqueDia_s[i], "inner", 0, total_pipe_s_i[i], "-", "-");
-                            data_report1.Rows.Add(p, "second", uniqueDia_s[i], "outer", 0, total_pipe_s_o[i], "-", "-");
-                        }
-                        else
-                        {
-                            string p = "-";
-                            data_report1.Rows.Add(p, "second", uniqueDia_s[i], "inner", 0, total_pipe_s_i[i], "-", "-");
-                            data_report1.Rows.Add(p, "second", uniqueDia_s[i], "outer", 0, total_pipe_s_o[i], "-", "-");
-                        }
-                    }
 
-                }
-                dataGridView3.DataSource = data_report1;
-                SaveFileDialog saveFileDialog = new SaveFileDialog
+            var tempRows = new List<(string Product, string MainSecond, double Diameter, string InOut, double Thickness, double Pipes, string Grade, string Blank)>();
+            var scrapTracker = new Dictionary<(double dia, string type), double>();
+
+            for (int i = 1; i < release_order.Count; i++)
+            {
+                string partNumber = release_order[i][2];
+                double qty = double.Parse(release_order[i][4]);
+                int index = data_source.FindIndex(row => row[0] == partNumber);
+                if (index == -1) continue;
+
+                var row = data_source[index];
+                string product = row[2];
+                double plus_value = double.Parse(row[5]);
+
+                double dia_i = double.Parse(row[3]);
+                double dia_o = double.Parse(row[6]);
+
+                double L_i = double.Parse(row[7]);
+                double L_o = double.Parse(row[8]);
+                double t_i = double.Parse(row[11]);
+                double t_o = double.Parse(row[12]);
+
+                string grade_i = row[13];
+                string grade_o = row[14];
+
+                // INNER
+                if (L_i > 0)
                 {
-                    Filter = "CSV Files (*.csv)|*.csv|Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
-                    Title = "Save Report 1",
-                    DefaultExt = "csv",
-                    FileName = "Untitled.csv"
-                };
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string filePath = saveFileDialog.FileName;
-                    MessageBox.Show("File will be saved at: " + filePath);
-                    ExportToCsv(data_report1, filePath);
+                    var key = (dia_i, "I");
+                    double unitsPerPipe = Math.Floor(1 / L_i);
+                    if (unitsPerPipe == 0) continue;
+                    double unitsFromScrap = 0;
+                    if (scrapTracker.ContainsKey(key))
+                    {
+                        unitsFromScrap = Math.Floor(scrapTracker[key] / L_i);
+                        double scrapQty = Math.Min(unitsFromScrap * L_i, qty);
+                        qty -= scrapQty;
+                        scrapTracker[key] -= scrapQty;
+                    }
+                    double pipesNeeded = Math.Ceiling(qty / unitsPerPipe);
+                    double leftover = pipesNeeded * (1 - (unitsPerPipe * L_i));
+                    scrapTracker[key] = scrapTracker.ContainsKey(key) ? scrapTracker[key] + leftover : leftover;
+
+                    string blank = "-";
+                    var match = blank_length_data.FirstOrDefault(b => b[0] == product &&
+                        double.TryParse(b[1], out var pv) && pv == plus_value &&
+                        double.TryParse(b[2], out var d) && d == dia_i &&
+                        double.TryParse(b[3], out var th) && th == t_i && b[5] == "I");
+                    if (match != null) blank = match[7];
+
+                    tempRows.Add((product, "main", dia_i, "inner", t_i, pipesNeeded, grade_i, blank));
                 }
-                else
+
+                // OUTER
+                if (L_o > 0)
                 {
-                    MessageBox.Show("Save operation was cancelled.");
+                    var key = (dia_i, "O");
+                    double unitsPerPipe = Math.Floor(1 / L_o);
+                    if (unitsPerPipe == 0) continue;
+                    double unitsFromScrap = 0;
+                    if (scrapTracker.ContainsKey(key))
+                    {
+                        unitsFromScrap = Math.Floor(scrapTracker[key] / L_o);
+                        double scrapQty = Math.Min(unitsFromScrap * L_o, qty);
+                        qty -= scrapQty;
+                        scrapTracker[key] -= scrapQty;
+                    }
+                    double pipesNeeded = Math.Ceiling(qty / unitsPerPipe);
+                    double leftover = pipesNeeded * (1 - (unitsPerPipe * L_o));
+                    scrapTracker[key] = scrapTracker.ContainsKey(key) ? scrapTracker[key] + leftover : leftover;
+
+                    string blank = "-";
+                    var match = blank_length_data.FirstOrDefault(b => b[0] == product &&
+                        double.TryParse(b[1], out var pv) && pv == plus_value &&
+                        double.TryParse(b[2], out var d) && d == dia_i &&
+                        double.TryParse(b[3], out var th) && th == t_o && b[5] == "O");
+                    if (match != null) blank = match[7];
+
+                    tempRows.Add((product, "main", dia_i, "outer", t_o, pipesNeeded, grade_o, blank));
                 }
+            }
+
+            var grouped = tempRows
+                .GroupBy(r => new { r.Product, r.MainSecond, r.Diameter, r.InOut, r.Thickness, r.Grade, r.Blank })
+                .Select(g => new
+                {
+                    g.Key.Product,
+                    g.Key.MainSecond,
+                    g.Key.Diameter,
+                    g.Key.InOut,
+                    g.Key.Thickness,
+                    Pipes = g.Sum(x => x.Pipes),
+                    g.Key.Grade,
+                    g.Key.Blank
+                });
+
+            var report = new DataTable();
+            report.Columns.Add("Product", typeof(string));
+            report.Columns.Add("Main/Second", typeof(string));
+            report.Columns.Add("Diameter", typeof(double));
+            report.Columns.Add("Inner/Outer", typeof(string));
+            report.Columns.Add("Thickness", typeof(double));
+            report.Columns.Add("Pipe Lengths Required (48)", typeof(double));
+            report.Columns.Add("Grade", typeof(string));
+            report.Columns.Add("Blank Length", typeof(string));
+
+            foreach (var row in grouped)
+            {
+                report.Rows.Add(row.Product, row.MainSecond, row.Diameter, row.InOut, row.Thickness, row.Pipes, row.Grade, row.Blank);
+            }
+
+            dataGridView3.DataSource = report;
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "CSV Files (*.csv)|*.csv",
+                Title = "Save Report 1",
+                DefaultExt = "csv",
+                FileName = "Report1.csv"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ExportToCsv(report, saveFileDialog.FileName);
+                MessageBox.Show("Report 1 saved.");
             }
         }
+
+
+
 
         private void button4_Click(object sender, EventArgs e)
         {
